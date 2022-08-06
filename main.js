@@ -26,7 +26,7 @@ navElements.forEach(function (item){
     const iconElement=document.createElement('i');
     const paragraph=document.createElement('p');
     nav.appendChild(anchorElement);
-    anchorElement.href=`${item}`;
+    anchorElement.href=`#${item}`;
     anchorElement.appendChild(iconElement);
     iconElement.classList.add("fa");
     anchorElement.appendChild(paragraph);
@@ -155,7 +155,7 @@ h3Tag.innerText="My skills"
 aboutSection.appendChild(h3Tag)
 
 const Abilities=["Photography","Web Design","Photoshop"];
-Abilities.forEach(function(ability){
+Abilities.forEach(function(ability,index){
     const pAbilities=document.createElement("p");
     pAbilities.innerText=ability;
     pAbilities.style.textAlign='left';
@@ -167,7 +167,14 @@ Abilities.forEach(function(ability){
     whitePart.style.backgroundColor="white";
     aboutSection.appendChild(whitePart)
     const greyPart=document.createElement("div");
-    greyPart.style.width="80%";
+    if(index==0){
+      greyPart.style.width="95%";
+    }else if(index==Abilities.length-1){
+      greyPart.style.width="85%";
+    }
+    else{
+      greyPart.style.width="90%";
+    }
     greyPart.style.height="28px";
     greyPart.style.backgroundColor="grey";
     whitePart.appendChild(greyPart)
@@ -207,8 +214,8 @@ section.forEach(function(sec,index){
 
 
 const buttondownload=document.createElement("button");
-// buttondownload.style.margin="16px 0";
-buttondownload.style.marginRight= '869px';
+buttondownload.style.display="flex";
+buttondownload.style.justifyContent="flex-start"
 buttondownload.style.marginTop= '15px';
 buttondownload.style.padding="12px 24px";
 aboutSection.appendChild(buttondownload);
@@ -218,6 +225,7 @@ iconDowload.style.marginRight="5px"
 buttondownload.appendChild(iconDowload);
 const spanDownload=document.createElement("span");
 spanDownload.innerText="Download Resume";
+spanDownload.style.cursor='pointer';
 spanDownload.style.color="#757575"
 buttondownload.appendChild(spanDownload);
 
@@ -239,7 +247,7 @@ aboutSection.appendChild(divPrice);
 
 const divHalfPrice1=document.createElement("div");
 divHalfPrice1.addEventListener("mouseover", mouseOver2);
-divHalfPrice1.addEventListener("mouseout", mouseOut2);
+divHalfPrice1.addEventListener("mouseleave", mouseOut2);
 divHalfPrice1.style.width="49%";
 divHalfPrice1.style.textAlign="center";
 divHalfPrice1.style.marginBottom="16px";
@@ -253,7 +261,7 @@ function mouseOver2() {
   }
 const divHalfPrice2=document.createElement("div");
 divHalfPrice2.addEventListener("mouseover", mouseOver3);
-divHalfPrice2.addEventListener("mouseout", mouseOut3);
+divHalfPrice2.addEventListener("mouseleave", mouseOut3);
 divHalfPrice2.style.width="49%";
 divHalfPrice2.style.textAlign="center";
 divHalfPrice2.style.marginBottom="16px";
@@ -294,6 +302,20 @@ properties1.forEach(function(prop,index){
     li.style.padding="24px 16px";
     const liButton=document.createElement("button");
     liButton.innerText="Sign Up";
+    liButton.addEventListener("mouseover", mouseOver4);
+    liButton.addEventListener('mouseleave', mouseOut4);
+    function mouseOver4() {
+      // liButton.style.backgroundColor = "white";
+      liButton.style.backgroundColor='black';
+
+      liButton.style.color='white';
+    }
+    
+    function mouseOut4() {
+      liButton.style.backgroundColor = "white";
+      liButton.style.color='grey';
+    }
+    liButton.style.cursor='pointer';
     liButton.style.backgroundColor="white";
     liButton.style.border="none";
     liButton.style.padding="12px 24px";
@@ -321,6 +343,7 @@ ul2.style.backgroundColor="white";
 ul2.style.opacity=0.6;
 ul2.style.paddingLeft=0;
 divHalfPrice2.appendChild(ul2)
+
 const properties2=["Basic","Web Design","Photography","50 Storage","Endless Support","",""];
 properties2.forEach(function(prop,index){
    const li=document.createElement("li");
@@ -340,6 +363,21 @@ properties2.forEach(function(prop,index){
     li.style.padding="24px 16px";
     const liButton=document.createElement("button");
     liButton.innerText="Sign Up";
+    liButton.addEventListener("mouseover", mouseOver5);
+    liButton.addEventListener('mouseleave', mouseOut5);
+    function mouseOver5() {
+      // liButton.style.backgroundColor = "white";
+      liButton.style.backgroundColor='black';
+
+      liButton.style.color='white';
+    }
+    
+    function mouseOut5() {
+      liButton.style.backgroundColor = "white";
+      liButton.style.color='grey';
+
+    }
+    liButton.style.cursor='pointer';
     liButton.style.backgroundColor="white";
     liButton.style.border="none";
     liButton.style.padding="12px 24px";
@@ -360,3 +398,100 @@ properties2.forEach(function(prop,index){
    }
    ul2.appendChild(li)
 })
+
+
+const h3Reputation=document.createElement("h3");
+h3Reputation.innerText="My reputation";
+h3Reputation.style.fontWeight=400;
+h3Reputation.style.margin="10px 0";
+h3Reputation.style.padding="16px 0";
+h3Reputation.style.fontSize="24px";
+aboutSection.appendChild(h3Reputation)
+
+const imgReputation=["bandmember","avatar_g2"];
+imgReputation.forEach(function(elem,index){
+    const reputationSection=document.createElement("div");
+    reputationSection.style.display="flex";
+    aboutSection.appendChild(reputationSection);
+    const imgRep=document.createElement("img");
+    imgRep.src=`https://www.w3schools.com/w3images/${elem}.jpg`;
+    imgRep.style.width="80px";
+    imgRep.style.marginRight="16px";
+    imgRep.style.borderRadius="50%";
+    reputationSection.appendChild(imgRep)
+    const divSub=document.createElement("div");
+    divSub.style.display="flex";
+    divSub.style.flexDirection="column";
+    reputationSection.appendChild(divSub);
+    
+    const p1Reputation=document.createElement("p");
+    p1Reputation.style.margin="5px 0 0 0";
+    p1Reputation.style.color="#757575";
+    divSub.appendChild(p1Reputation)
+    const repuSpan1= document.createElement("span");
+    p1Reputation.innerText="Chris Fox.";
+    repuSpan1.innerText="CEO at Mighty Schools.";
+    repuSpan1.style.marginLeft="16px";
+    p1Reputation.appendChild(repuSpan1);
+    const repuP2=document.createElement("p");
+    repuP2.innerText="John Doe saved us from a web disaster."
+    repuP2.style.color="#757575";
+    divSub.appendChild(repuP2)
+    if(index!=0){
+        p1Reputation.innerText="Rebecca Flex.";
+        p1Reputation.appendChild(repuSpan1);
+        repuSpan1.innerText="CEO at Company.";
+        repuP2.innerText="No one is better than John Doe."
+        reputationSection.style.paddingBottom="64px"
+    }
+})
+
+
+
+const divPhotos=document.createElement("div");
+divPhotos.classList.add("photos");
+divPhotos.setAttribute('id','Photos');
+divPhotos.style.padding="64px 0";
+div.appendChild(divPhotos);
+const h2Photo=document.createElement("h2");
+h2Photo.innerText="My Photos";
+h2Photo.style.margin="10px 0";
+h2Photo.style.paddingLeft="92px";
+divPhotos.appendChild(h2Photo);
+const hrPhoto=document.createElement("hr");
+hrPhoto.style.width="200px";
+hrPhoto.style.border="0";
+hrPhoto.style.margin="20px 0";
+hrPhoto.style.borderTop="1px solid #eee";
+hrPhoto.style.opacity=0.6;
+hrPhoto.style.marginLeft="92px";
+divPhotos.appendChild(hrPhoto);
+
+const photoContainer=document.createElement("div");
+photoContainer.style.display="flex";
+photoContainer.style.padding="64px 92px";
+photoContainer.style.justifyContent="space-between";
+divPhotos.appendChild(photoContainer);
+
+const subPhotoCon1=document.createElement("div");
+subPhotoCon1.style.width="49%";
+const subPhotoCon2=document.createElement("div");
+subPhotoCon2.style.width="49%";
+photoContainer.appendChild(subPhotoCon1);
+photoContainer.appendChild(subPhotoCon2);
+
+const imgPhotos1=["wedding","rocks","sailboat"];
+imgPhotos1.forEach(function(elem){
+    const imgPhoto=document.createElement("img");
+    imgPhoto.style.width="100%";
+    imgPhoto.src=`images/${elem}.jpg`;
+    subPhotoCon1.appendChild(imgPhoto);
+});
+
+const imgPhotos2=["underwater","chef","wedding","p6"];
+imgPhotos2.forEach(function(elem){
+    const imgPhoto=document.createElement("img");
+    imgPhoto.style.width="100%";
+    imgPhoto.src=`images/${elem}.jpg`;
+    subPhotoCon2.appendChild(imgPhoto);
+});
