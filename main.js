@@ -231,6 +231,7 @@ buttondownload.appendChild(spanDownload);
 
 const h3Price=document.createElement("h3");
 h3Price.innerText="My Price";
+h3Price.style.textAlign="left";
 h3Price.style.fontWeight=400;
 h3Price.style.margin="10px 0";
 h3Price.style.padding="16px 0";
@@ -402,6 +403,7 @@ properties2.forEach(function(prop,index){
 
 const h3Reputation=document.createElement("h3");
 h3Reputation.innerText="My reputation";
+h3Reputation.style.textAlign="left";
 h3Reputation.style.fontWeight=400;
 h3Reputation.style.margin="10px 0";
 h3Reputation.style.padding="16px 0";
@@ -430,34 +432,39 @@ imgReputation.forEach(function(elem,index){
     divSub.appendChild(p1Reputation)
     const repuSpan1= document.createElement("span");
     p1Reputation.innerText="Chris Fox.";
+    p1Reputation.style.paddingRight="17px";
     repuSpan1.innerText="CEO at Mighty Schools.";
     repuSpan1.style.marginLeft="16px";
     p1Reputation.appendChild(repuSpan1);
     const repuP2=document.createElement("p");
     repuP2.innerText="John Doe saved us from a web disaster."
+    repuP2.style.paddingLeft='20px';
     repuP2.style.color="#757575";
     divSub.appendChild(repuP2)
     if(index!=0){
         p1Reputation.innerText="Rebecca Flex.";
+        p1Reputation.style.paddingLeft="20px";
         p1Reputation.appendChild(repuSpan1);
         repuSpan1.innerText="CEO at Company.";
         repuP2.innerText="No one is better than John Doe."
+        repuP2.style.marginLeft='-25px';
         reputationSection.style.paddingBottom="64px"
     }
 })
 
 
-
-const divPhotos=document.createElement("div");
-divPhotos.classList.add("photos");
-divPhotos.setAttribute('id','Photos');
-divPhotos.style.padding="64px 0";
-div.appendChild(divPhotos);
+const sectionPhotos=document.createElement("div");
+sectionPhotos.classList.add("photos");
+sectionPhotos.setAttribute('id','Photos');
+sectionPhotos.style.padding="64px 0";
+sectionPhotos.style.marginLeft="250px";
+div.appendChild(sectionPhotos);
 const h2Photo=document.createElement("h2");
 h2Photo.innerText="My Photos";
+h2Photo.style.textAlign="left";
 h2Photo.style.margin="10px 0";
 h2Photo.style.paddingLeft="92px";
-divPhotos.appendChild(h2Photo);
+sectionPhotos.appendChild(h2Photo);
 const hrPhoto=document.createElement("hr");
 hrPhoto.style.width="200px";
 hrPhoto.style.border="0";
@@ -465,18 +472,19 @@ hrPhoto.style.margin="20px 0";
 hrPhoto.style.borderTop="1px solid #eee";
 hrPhoto.style.opacity=0.6;
 hrPhoto.style.marginLeft="92px";
-divPhotos.appendChild(hrPhoto);
+sectionPhotos.appendChild(hrPhoto);
 
 const photoContainer=document.createElement("div");
 photoContainer.style.display="flex";
 photoContainer.style.padding="64px 92px";
 photoContainer.style.justifyContent="space-between";
-divPhotos.appendChild(photoContainer);
+sectionPhotos.appendChild(photoContainer);
 
 const subPhotoCon1=document.createElement("div");
-subPhotoCon1.style.width="49%";
+subPhotoCon1.style.width="37%";
 const subPhotoCon2=document.createElement("div");
-subPhotoCon2.style.width="49%";
+subPhotoCon2.style.width="37%";
+subPhotoCon2.style.marginRight="320px";
 photoContainer.appendChild(subPhotoCon1);
 photoContainer.appendChild(subPhotoCon2);
 
@@ -484,7 +492,7 @@ const imgPhotos1=["wedding","rocks","sailboat"];
 imgPhotos1.forEach(function(elem){
     const imgPhoto=document.createElement("img");
     imgPhoto.style.width="100%";
-    imgPhoto.src=`images/${elem}.jpg`;
+    imgPhoto.src=`https://www.w3schools.com/w3images/${elem}.jpg`;
     subPhotoCon1.appendChild(imgPhoto);
 });
 
@@ -492,6 +500,130 @@ const imgPhotos2=["underwater","chef","wedding","p6"];
 imgPhotos2.forEach(function(elem){
     const imgPhoto=document.createElement("img");
     imgPhoto.style.width="100%";
-    imgPhoto.src=`images/${elem}.jpg`;
+    imgPhoto.src=`https://www.w3schools.com/w3images/${elem}.jpg`;
     subPhotoCon2.appendChild(imgPhoto);
 });
+
+
+const sectionContact=document.createElement("div");
+sectionContact.classList.add("contact");
+sectionContact.setAttribute('id','Contact');
+sectionContact.style.padding="64px 92px";
+sectionContact.style.marginLeft="250px"
+div.appendChild(sectionContact);
+
+const h2Contact=document.createElement("h2");
+h2Contact.innerText="Contact Me";
+h2Contact.style.margin="10px 0";
+h2Contact.style.color="#fff";
+h2Contact.style.textAlign="left";
+sectionContact.appendChild(h2Contact);
+const hrContact=document.createElement("hr");
+hrContact.style.width="200px";
+hrContact.style.border="0";
+hrContact.style.margin="20px 0";
+hrContact.style.borderTop="1px solid #eee";
+hrContact.style.opacity=0.6;
+sectionContact.appendChild(hrContact);
+
+const contactSection=document.createElement("div");
+contactSection.style.margin="16px 0";
+sectionContact.appendChild(contactSection);
+const contactAddress=["Chicago,US","Phone: +00 151515","Email: mail@mail.com"];
+contactAddress.forEach(function(elem){
+    const pContact=document.createElement("p");
+    pContact.style.margin="15px 0";
+    pContact.style.textAlign="left";
+    pContact.style.color="#757575";
+    contactSection.appendChild(pContact)
+    const addressIcon=document.createElement("i");
+    addressIcon.classList.add("fa");
+    addressIcon.style.marginRight="16px";
+    addressIcon.style.fontSize="36px";
+    addressIcon.style.color="white";
+    pContact.appendChild(addressIcon);
+    const spanContact=document.createElement("span")
+    spanContact.innerText=elem;
+    pContact.appendChild(spanContact);
+});
+
+const iconMap=document.querySelector(".contact div p .fa:first-of-type");
+iconMap.classList.add("fa-map-marker");
+iconMap.style.display="flex";
+iconMap.style.justifyContent="flex-start";
+const iconPhone=document.querySelector(".contact div p:nth-of-type(2) .fa");
+iconPhone.classList.add("fa-phone");
+iconPhone.style.display="flex";
+iconPhone.style.justifyContent="flex-start";
+const iconLetter=document.querySelector(".contact div p:nth-of-type(3) .fa");
+iconLetter.classList.add("fa-envelope");
+iconLetter.style.display="flex";
+iconLetter.style.justifyContent="flex-start";
+
+const pContact2=document.createElement("p");
+pContact2.innerText="Let's get in touch. Send me a message:";
+pContact2.style.margin="15px 0";
+pContact2.style.color="#757575";
+pContact2.style.textAlign="left";
+sectionContact.appendChild(pContact2);
+const form=document.createElement("form");
+sectionContact.appendChild(form);
+
+const formBox=["Name","Email","Subject","Message",""];
+
+formBox.forEach(function(item,index){
+    const pform=document.createElement("p");
+    pform.style.margin="15px 0";
+    form.appendChild(pform);
+    if(index!=formBox.length-1){
+        const input=document.createElement("input");
+        if(index==1){
+            input.type="email";
+        }else if(index!=1){
+            input.type="text";
+        }
+        input.style.width="70%";
+        input.style.marginRight="385px";
+        input.style.padding="16px 8px";
+        input.style.border="none";
+        input.style.borderBottom="1px solid #ccc";
+        input.placeholder=item;
+        input.name=item;
+        input.required=true;
+        pform.appendChild(input);
+    }else{
+        const buttonBox=document.createElement("button");
+        buttonBox.style.padding="12px 24px";
+        buttonBox.style.marginRight="1120px";
+        pform.appendChild(buttonBox);
+        const iconSend=document.createElement("i");
+        iconSend.classList.add("fa","fa-paper-plane");
+        iconSend.style.fontSize="15px"
+        iconSend.style.marginRight="7px"
+        buttonBox.appendChild(iconSend);
+        const spanForm=document.createElement("span");
+        spanForm.innerText="SEND MESSAGE";
+        spanForm.style.cursor="pointer";
+        buttonBox.appendChild(spanForm);
+    }
+})
+
+
+const footer=document.createElement("div");
+footer.style.padding="64px 92px";
+footer.style.color="#757575";
+footer.style.fontSize="24px";
+footer.style.textAlign="left";
+footer.style.marginLeft="255px";
+div.appendChild(footer);
+const socialMedia=["fa-facebook-official","fa-instagram","fa-snapchat","fa-pinterest-p","fa-twitter","fa-linkedin"];
+socialMedia.forEach(function(icon){
+    const iconSocial=document.createElement("i");
+    iconSocial.style.marginRight="5px"
+    iconSocial.classList.add("fa",`${icon}`);
+    footer.appendChild(iconSocial);
+});
+const theend=document.createElement("p");
+    theend.innerText="Powered by w3.css";
+    theend.style.fontSize="15px";
+    footer.appendChild(theend);
